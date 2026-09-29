@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Professor {
+  id           Int           @id @default(autoincrement())
+  nome         String
+  apelido      String?
+  faixa        String
+  grau         Int?
+  whatsapp     String
+  foto         String        @default("/professores/placeholder.jpg")
+  destaque     Boolean       @default(false)
+  turmas       Turma[]
+  agendamentos Agendamento[]
+  criadoEm     DateTime      @default(now())
+}
+
+model Turma {
+  id               Int           @id @default(autoincrement())
+  nome             String
+  descricao        String?
+  professorDisplay String?
+  diasSemana       String        // JSON: "[1,2,3,4,5]" (0=dom...6=sab)
+  horarios         String        // JSON: ["06:30","07:30"]
+  vagasMax         Int           @default(3)
+  professorId      Int
+  professor        Professor     @relation(fields: [professorId], references: [id])
+  agendamentos     Agendamento[]
+}
+
+model Agendamento {
+  id          Int         @id @default(autoincrement())
+  nome        String
+  whatsapp    String
+  email       String?
+  turmaId     Int
+  turma       Turma       @relation(fields: [turmaId], references: [id])
+  professorId Int
+  professor   Professor   @relation(fields: [professorId], references: [id])
+  data        String      // "2026-09-15"
+  horario     String      // "07:30"
+  status      String      @default("pendente") // pendente | confirmado | cancelado
+  criadoEm   DateTime    @default(now())
+}
