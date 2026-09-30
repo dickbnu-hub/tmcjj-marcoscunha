@@ -41,7 +41,7 @@ export const PROFESSORES: ProfessorConfig[] = [
   {
     id: 4,
     nome: "Layla",
-    faixa: "Faixa Preta",
+    faixa: "Faixa Azul",
     whatsapp: "[WHATSAPP_LAYLA]",
     foto: "/professores/layla.jpg",
   },
@@ -62,7 +62,7 @@ export const PROFESSORES: ProfessorConfig[] = [
   {
     id: 7,
     nome: "Pablo",
-    faixa: "Faixa Preta",
+    faixa: "Faixa Marrom",
     whatsapp: "[WHATSAPP_PABLO]",
     foto: "/professores/pablo.jpg",
   },
