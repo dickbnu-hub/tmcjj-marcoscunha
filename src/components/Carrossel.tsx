@@ -3,9 +3,10 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const SLIDES = [
-  { src: "/treinos/treino-01.jpg", alt: "Treino de Jiu-Jitsu TMC" },
-  { src: "/treinos/treino-02.jpg", alt: "Sparring na academia" },
-  { src: "/treinos/treino-03.jpg", alt: "Aula técnica" },
+  { src: "/treinos/copa-marcos-cunha.png", alt: "Copa Marcos Cunha - GI e NOGI", color: true },
+  { src: "/treinos/treino-01.jpg", alt: "Treino de Jiu-Jitsu TMC", color: false },
+  { src: "/treinos/treino-02.jpg", alt: "Sparring na academia", color: false },
+  { src: "/treinos/treino-03.jpg", alt: "Aula técnica", color: false },
 ];
 
 export default function Carrossel() {
@@ -67,7 +68,7 @@ export default function Carrossel() {
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                className="object-cover grayscale"
+                className={`object-cover ${slide.color ? "" : "grayscale"}`}
                 priority={i === 0}
                 sizes="(max-width: 768px) 100vw, 1280px"
               />
