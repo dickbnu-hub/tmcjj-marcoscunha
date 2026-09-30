@@ -23,19 +23,19 @@ async function main() {
   });
 
   const layla = await prisma.professor.create({
-    data: { nome: "Layla", faixa: "Faixa Preta", whatsapp: "[WHATSAPP_LAYLA]", foto: "/professores/placeholder.jpg" },
+    data: { nome: "Layla", faixa: "Faixa Azul", whatsapp: "[WHATSAPP_LAYLA]", foto: "/professores/layla.jpg" },
   });
 
   const bruna = await prisma.professor.create({
     data: { nome: "Bruna Borba", faixa: "Faixa Preta", whatsapp: "[WHATSAPP_BRUNA]", foto: "/professores/placeholder.jpg" },
   });
 
-  await prisma.professor.create({
-    data: { nome: "Amanda", faixa: "Faixa Preta", whatsapp: "[WHATSAPP_AMANDA]", foto: "/professores/placeholder.jpg" },
+  const amanda = await prisma.professor.create({
+    data: { nome: "Amanda Souza", faixa: "Faixa Preta", whatsapp: "[WHATSAPP_AMANDA]", foto: "/professores/amanda-souza.jpg" },
   });
 
   const pablo = await prisma.professor.create({
-    data: { nome: "Pablo", faixa: "Faixa Preta", whatsapp: "[WHATSAPP_PABLO]", foto: "/professores/placeholder.jpg" },
+    data: { nome: "Pablo", faixa: "Faixa Marrom", whatsapp: "[WHATSAPP_PABLO]", foto: "/professores/pablo.jpg" },
   });
 
   const kibe = await prisma.professor.create({
@@ -51,7 +51,7 @@ async function main() {
   await prisma.turma.create({ data: { nome: "Kids", diasSemana: JSON.stringify([1,3]), horarios: JSON.stringify(["19:10"]), vagasMax: 3, professorId: wolgher.id } });
 
   // Ter/Qui
-  await prisma.turma.create({ data: { nome: "Feminino", diasSemana: JSON.stringify([2,4]), horarios: JSON.stringify(["06:45"]), vagasMax: 3, professorId: bruna.id } });
+  await prisma.turma.create({ data: { nome: "Feminino", diasSemana: JSON.stringify([2,4]), horarios: JSON.stringify(["06:45"]), vagasMax: 3, professorId: bruna.id, professorDisplay: "Bruna Borba e Amanda Souza" } });
   await prisma.turma.create({ data: { nome: "No-Gi", diasSemana: JSON.stringify([2,4]), horarios: JSON.stringify(["12:00","21:00"]), vagasMax: 3, professorId: pablo.id } });
   await prisma.turma.create({ data: { nome: "No-Gi", diasSemana: JSON.stringify([2,4]), horarios: JSON.stringify(["15:00"]), vagasMax: 3, professorId: kibe.id } });
   await prisma.turma.create({ data: { nome: "Teens", diasSemana: JSON.stringify([2,4]), horarios: JSON.stringify(["19:00"]), vagasMax: 3, professorId: pablo.id } });
