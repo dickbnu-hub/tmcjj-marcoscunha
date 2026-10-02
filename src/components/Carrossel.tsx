@@ -4,6 +4,7 @@ import Image from "next/image";
 
 const SLIDES = [
   { src: "/treinos/copa-marcos-cunha.png", alt: "Copa Marcos Cunha - GI e NOGI", color: true },
+  { src: "/treinos/treino-04.png", alt: "Turma Fundamentos - 3ª/5ª 20h", color: true },
   { src: "/treinos/treino-01.jpg", alt: "Treino de Jiu-Jitsu TMC", color: false },
   { src: "/treinos/treino-02.jpg", alt: "Sparring na academia", color: false },
   { src: "/treinos/treino-03.jpg", alt: "Aula técnica", color: false },
